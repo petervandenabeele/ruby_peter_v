@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = RubyPeterV::VERSION
   gem.authors       = ["Peter Vandenabeele"]
   gem.email         = ["peter@vandenabeele.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Ruby helpers for @peter_v}
+  gem.summary       = %q{Ruby helpers for @peter_v}
+  gem.homepage      = "https://github.com/petervandenabeele/ruby_peter_v"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

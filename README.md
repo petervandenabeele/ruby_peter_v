@@ -1,6 +1,6 @@
 # RubyPeterV
 
-TODO: Write a gem description
+Ruby helpers for Peter Vandenabeele
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+* .single on enumerable (instead of unstable .first)
 
 ## Contributing
 
