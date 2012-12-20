@@ -23,9 +23,9 @@ Or install it yourself as:
   The background of this is that in many cases,
   the developer knows there _should_ only be 1
   element in the set. Using first is fine, but if
-  inadvertently, more elements are present, the first
+  inadvertently more elements are present, the first
   will happily choose a random entry (certainly with
-  ActiveRecord first) which is silent bug.
+  ActiveRecord first) which is a silent bug.
 
 ## Contributing
 
