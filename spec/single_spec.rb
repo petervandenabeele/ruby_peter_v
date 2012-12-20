@@ -16,7 +16,7 @@ describe "single" do
     a.single.should == :a
   end
 
-  it "exception for for > 1 element in set" do
+  it "exception for > 1 element in set" do
     a = [:a, :b]
     lambda{a.single}.should raise_exception
   end

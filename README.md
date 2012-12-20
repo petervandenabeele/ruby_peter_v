@@ -20,6 +20,13 @@ Or install it yourself as:
 
 * .single on enumerable (instead of unstable .first)
 
+  The background of this is that in many cases,
+  the developer knows there _should_ only be 1
+  element in the set. Using first is fine, but if
+  inadvertently, more elements are present, the first
+  will happily choose a random entry (certainly with
+  ActiveRecord first) which is silent bug.
+
 ## Contributing
 
 1. Fork it
