@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe "single" do
-  it "keeps a nil value" do
+  it "raises error on nil value (nil.first also raises error)" do
     a = nil
-    a.single.should == nil
+    lambda {a.single}.should raise_error
   end
 
   it "nil for empty set" do

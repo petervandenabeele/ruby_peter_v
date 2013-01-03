@@ -1,11 +1,3 @@
-class NilClass
-
-  def single
-    self
-  end
-
-end
-
 module Enumerable
 
   def single
