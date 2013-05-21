@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-* .single on enumerable (instead of unstable .first)
+* #single on enumerable (instead of unstable .first)
 
   The background of this is that in many cases,
   the developer knows there _should_ only be 1
@@ -26,6 +26,13 @@ Or install it yourself as:
   inadvertently more elements are present, the first
   will happily choose a random entry (certainly with
   ActiveRecord first) which is a silent bug.
+
+* #max_with_nil on Object
+
+  Finding the max of two arguments, but if one of them
+  is nil, take the other one, and both nil, return nil.
+  This is similar to the behavior ios nil would be considered
+  smaller than all other objects.
 
 ## Contributing
 
