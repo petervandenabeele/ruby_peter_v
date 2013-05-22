@@ -34,6 +34,15 @@ Or install it yourself as:
   This is similar to the behavior ios nil would be considered
   smaller than all other objects.
 
+* #set_once(attribute, value) on Object
+
+  Setting the instance variable with name attribute (a symbol),
+  once to a value value. This acts as a simple form of an
+  immutable attribute. After initialization of the object, it
+  can still be set once from nil to a specific value, but after
+  that, it can never be changed to a different value. Writing
+  it twice with the same value does not trow an exception. 
+
 ## Contributing
 
 1. Fork it
