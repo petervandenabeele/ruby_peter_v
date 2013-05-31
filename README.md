@@ -2,6 +2,9 @@
 
 Ruby helpers for Peter Vandenabeele
 
+[![Gem Version](https://badge.fury.io/rb/ruby_peter_v.png)](http://badge.fury.io/rb/ruby_peter_v)
+[![Build Status](https://travis-ci.org/petervandenabeele/ruby_peter_v.png?branch=master)](http://travis-ci.org/petervandenabeele/ruby_peter_v)
+
 ## Installation
 
 Add this line to your application's Gemfile:
