@@ -10,6 +10,15 @@
 
 * Object#max_with_nil(a, b) added
 
-0.0.4 (20123-05-22)
+0.0.4 (2013-05-22)
 
 * Object#set_once(attribute, value) added
+
+0.0.5 (2013-05-31)
+
+* Object#do_recursively
+
+TODO:
+
+* Object#define_eql
+* Object#assert_keys_in
