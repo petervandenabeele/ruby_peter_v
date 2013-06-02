@@ -23,10 +23,17 @@
 * module DefineEquality
 * Module#DefineEquality
 
-0.0.7 (2013-06-03)
+0.0.7 (2013-06-02)
 
 * remove Object#max_with_nil(a,b)
   (use [a,b,c].compact.max)
+
+0.0.8 (2013-06-02)
+
+* fix some TODO's
+* Enumerable#single takes a block
+* Enumerable#single works properly on lazy Enumerables
+* Object#each_recursively
 
 TODO
 * Object#assert_keys_in
