@@ -25,7 +25,7 @@ describe "define_equality" do
         _o.instance_eval do
           @foo = '1'
           @bar = '1'
-          self.singleton_class.define_equality()
+          self.singleton_class.class_eval { include DefineEquality() }
         end
       end
     end
@@ -35,7 +35,7 @@ describe "define_equality" do
         _o.instance_eval do
           @foo = '1'
           @bar = '2'
-          self.singleton_class.define_equality()
+          self.singleton_class.class_eval { include DefineEquality() }
         end
       end
     end
@@ -46,7 +46,7 @@ describe "define_equality" do
           @foo = '1'
           @bar = '1'
           def foo ; @foo ; end
-          self.singleton_class.define_equality(:foo)
+          self.singleton_class.class_eval { include DefineEquality(:foo) }
         end
       end
     end
@@ -57,7 +57,7 @@ describe "define_equality" do
           @foo = '1'
           @bar = '2'
           def foo ; @foo ; end
-          self.singleton_class.define_equality(:foo)
+          self.singleton_class.class_eval { include DefineEquality(:foo) }
         end
       end
     end
@@ -68,7 +68,7 @@ describe "define_equality" do
           @foo = '2'
           @bar = '1'
           def foo ; @foo ; end
-          self.singleton_class.define_equality(:foo)
+          self.singleton_class.class_eval { include DefineEquality(:foo) }
         end
       end
     end
