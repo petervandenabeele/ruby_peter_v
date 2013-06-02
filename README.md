@@ -48,4 +48,12 @@ Add this line to your application's Gemfile:
   over objects that are read from a file that is much larger than
   the memory size, needed for Big Data processing).
 
+### DefineEquality(*accessors) on Module
 
+  Defining the equality (.eql?, ==, hash) between instances.
+  The class is included by default in the accessor list in
+  the usage `include DefineEquality(:foo, :bar)`.
+
+  Defining equality for instances of different classes is
+  possible by manually defining the `equality_accessors`
+  function (see the spec with the b5 instance).

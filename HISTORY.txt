@@ -18,7 +18,10 @@
 
 * Object#do_recursively
 
-TODO:
+0.0.6 (2013-06-02)
 
-* Object#define_eql
+* module DefineEquality
+* Module#DefineEquality
+
+TODO
 * Object#assert_keys_in
