@@ -13,7 +13,7 @@ Add this line to your application's Gemfile:
 
 ## Usage
 
-### single on enumerable (instead of unstable .first)
+### single on Enumerable (instead of unstable .first)
 
   The background of this is that in many cases,
   the developer knows there _should_ only be 1
@@ -48,10 +48,4 @@ Add this line to your application's Gemfile:
   over objects that are read from a file that is much larger than
   the memory size, needed for Big Data processing).
 
-## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
