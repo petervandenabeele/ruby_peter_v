@@ -22,8 +22,6 @@ Add this line to your application's Gemfile:
   will happily choose a random entry (certainly with
   ActiveRecord first) which is a silent bug.
 
-  TODO: refactor : take a block (a "detect" with uniqueness check)
-
 ```
 $ irb
 2.0.0-p195 :001 > require 'ruby_peter_v'
