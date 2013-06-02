@@ -118,5 +118,33 @@ describe "define_equality" do
         b1.hash.should_not == b3.hash
       end
     end
+
+    let(:b4) do
+      Object.new.tap do |_o|
+        _o.instance_eval do
+          self.singleton_class.class_eval { include DefineEquality }
+        end
+      end
+    end
+
+    let(:b5) do
+      Object.new.tap do |_o|
+        _o.instance_eval do
+          def equality_accessors ; [:to_s] ; end
+          def to_s ; "foobar" ; end
+          self.singleton_class.class_eval { include DefineEquality }
+        end
+      end
+    end
+
+    describe "the equality_accessors can be set manually with `include DefineEquality`" do
+      it "without equality_accessors it fails" do
+        lambda{ b4 == b4 }.should raise_error NameError, /equality_accessors/
+      end
+
+      it "with equality_accessors (e.g. without class) it allows equality with other class" do
+        b5.should == 'foobar'
+      end
+    end
   end
 end
