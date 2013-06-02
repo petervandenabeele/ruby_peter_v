@@ -1,26 +1,26 @@
 require 'spec_helper'
 
-describe "do_recursively" do
+describe "each_recursively" do
 
-  let(:a) {Object.new}
+  let(:a) { Object.new }
 
   it "does it once for a non collection object" do
     a.should_receive(:test_it).exactly(1).times
-    do_recursively(a) do |_e|
+    a.each_recursively do |_e|
       _e.test_it
     end
   end
 
   it "does it for each entry in a simple array" do
     a.should_receive(:test_it).exactly(2).times
-    do_recursively([a,a]) do |_e|
+    [a,a].each_recursively do |_e|
       _e.test_it
     end
   end
 
   it "does it for each entry in a complex combination" do
     a.should_receive(:test_it).exactly(6).times
-    do_recursively([a,[a,a],[[[a],a],a]]) do |_e|
+    [a,[a,a],[[[a],a],a]].each_recursively do |_e|
       _e.test_it
     end
   end
@@ -41,7 +41,7 @@ describe "do_recursively" do
 
     it "call the each block 2 times" do
       a.should_receive(:test_it).with("test").exactly(2).times
-      do_recursively(b) do |_e|
+      b.each_recursively do |_e|
         a.test_it(_e)
       end
     end
@@ -49,7 +49,7 @@ describe "do_recursively" do
     it "works with lazy in Ruby 2.0" do
       pending("only Ruby >= 2.0") unless RUBY_VERSION.split('.').first.to_i >= 2
       a.should_receive(:test_it).with("test").exactly(2).times
-      do_recursively(b.lazy) do |_e|
+      b.lazy.each_recursively do |_e|
         a.test_it(_e)
       end
     end
@@ -61,10 +61,9 @@ describe "do_recursively" do
         end
       end
 
-      do_recursively(b) do |_e|
+      b.each_recursively do |_e|
         _e
       end
     end
   end
-
 end

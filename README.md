@@ -48,9 +48,6 @@ RubyPeterV::UniquenessError: size of collection was 2.
   can still be set once from nil to a specific value, but after
   that, it can never be changed to a different value. Writing
   it twice with the same value does not throw an exception.
-
-  TODO: refactor to a Module method that also defines the attr_accessor
-
 ```
 2.0.0-p195 :009 > class A
 2.0.0-p195 :010?>   attr_reader :foo
@@ -73,20 +70,18 @@ RubyPeterV::UniquenessError: size of collection was 2.
 SetOnceError: Value of foo was 1, trying to set it to 2
 ```
 
-### do_recursively(entry_or_collection, &block) on Object
+### entry_or_collection.each_recursively on Object
 
   Call the block on each entry that is given as entry, in a
-  collection, or in a collection in a collection to unrestricted
-  depth. This implementation only uses each and loops recursively,
-  so it never instantiates an array or actual collection of all
-  objects (this allows streaming, lazy evaluation, e.g. for looping
-  over objects that are read from a file that is much larger than
-  the memory size, needed for Big Data processing).
-
-  TODO: refactor to "entry_or_collection.each_recursively"
+  collection, or in a collection in a collection, etc. to
+  unrestricted depth. This implementation only uses each and it
+  loops recursively, so it never instantiates an array or actual
+  collection of all objects (this allows streaming, lazy evaluation,
+  e.g. for looping over objects that are read from a file that is
+  much larger than the memory size).
 
 ```
-2.0.0-p195 :021 > do_recursively([:a, [:b, [:c]]]) { |e| puts e.succ }
+2.0.0-p195 :021 > [:a, [:b, [:c]]].each_recursively{ |e| puts e.succ }
 b
 c
 d
