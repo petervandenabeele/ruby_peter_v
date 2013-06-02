@@ -38,26 +38,6 @@ RuntimeError: INTERNAL ERROR: size of set was 2
 ...
 ```
 
-### max_with_nil on Object
-
-  Finding the max of two arguments, but if one of them
-  is nil, take the other one, and both nil, return nil.
-  This is similar to the behavior ios nil would be considered
-  smaller than all other objects.
-
-  TODO: may remove and replace with enumerable.compact.max
-
-```
-2.0.0-p195 :005 > max_with_nil(1,2)
- => 2
-2.0.0-p195 :006 > max_with_nil(1,nil)
- => 1
-2.0.0-p195 :007 > max_with_nil(nil,2)
- => 2
-2.0.0-p195 :008 > max_with_nil(nil, nil)
- => nil
-```
-
 ### set_once(attribute, value) on Object
 
   Setting the instance variable with name attribute (a symbol),

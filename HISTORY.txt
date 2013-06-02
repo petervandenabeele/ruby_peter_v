@@ -23,5 +23,10 @@
 * module DefineEquality
 * Module#DefineEquality
 
+0.0.7 (2013-06-03)
+
+* remove Object#max_with_nil(a,b)
+  (use [a,b,c].compact.max)
+
 TODO
 * Object#assert_keys_in
