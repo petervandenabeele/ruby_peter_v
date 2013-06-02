@@ -4,8 +4,14 @@ module Enumerable
 
   def single(&block)
     filtered = block_given? ? self.select(&block) : self
-    _size = filtered.size
-    raise RubyPeterV::UniquenessError, "size of set was #{_size}" if _size > 1
+    if filtered.respond_to?(:size)
+      _size = filtered.size
+      message = size
+    else
+      _size = filtered.first(2).size
+      message = "greater than 1 (on Enumerable, the size cannot be calculated)"
+    end
+    raise RubyPeterV::UniquenessError, "size of collection was #{message}." if _size > 1
     filtered.first
   end
 

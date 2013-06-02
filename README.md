@@ -17,10 +17,15 @@ Add this line to your application's Gemfile:
 
   The background of this is that in many cases,
   the developer knows there _should_ only be 1
-  element in the set. Using first is fine, but if
+  element in a collection. Using first is fine, but if
   inadvertently more elements are present, `.first`
   will happily choose a random entry (certainly with
   ActiveRecord first) which is a silent bug.
+
+  single also works smartly on an Enumerable that
+  does not have a `single` method (a lazy collection).
+  It will only evaluate the first(2) elements of
+  the collection to determine that it is oversized.
 
 ```
 $ irb
@@ -31,7 +36,7 @@ $ irb
 2.0.0-p195 :003 > [1].single
  => 1
 2.0.0-p195 :004 > [1,2].single
-RuntimeError: INTERNAL ERROR: size of set was 2
+RubyPeterV::UniquenessError: size of collection was 2.
 ...
 ```
 
