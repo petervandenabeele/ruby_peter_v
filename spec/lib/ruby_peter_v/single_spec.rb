@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "single" do
   it "raises error on nil value (nil.first also raises error)" do
     a = nil
-    lambda { a.single } . should raise_error NoMethodError
+    lambda{ a.single }.should raise_error NoMethodError
   end
 
   it "nil for empty set" do
@@ -18,6 +18,6 @@ describe "single" do
 
   it "exception for > 1 element in set" do
     a = [:a, :b]
-    lambda { a.single } . should raise_exception RuntimeError
+    lambda{ a.single }.should raise_exception RubyPeterV::UniquenessError
   end
 end

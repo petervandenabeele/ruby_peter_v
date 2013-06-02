@@ -22,7 +22,6 @@ Add this line to your application's Gemfile:
   will happily choose a random entry (certainly with
   ActiveRecord first) which is a silent bug.
 
-  TODO: refactor : use a dedicated exception UniquenessError  
   TODO: refactor : take a block (a "detect" with uniqueness check)
 
 ```

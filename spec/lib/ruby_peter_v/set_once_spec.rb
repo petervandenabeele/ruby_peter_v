@@ -23,7 +23,7 @@ describe "set_once" do
       value = 10
       subject.set_once(:attr, value)
       lambda { subject.set_once(:attr, value+1) } . should raise_error(
-        SetOnceError,
+        RubyPeterV::SetOnceError,
         "Value of attr was 10, trying to set it to 11")
     end
   end
