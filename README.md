@@ -80,6 +80,8 @@ SetOnceError: Value of foo was 1, trying to set it to 2
   e.g. for looping over objects that are read from a file that is
   much larger than the memory size).
 
+  Returns self.
+
 ```
 2.0.0-p195 :021 > [:a, [:b, [:c]]].each_recursively{ |e| puts e.succ }
 b

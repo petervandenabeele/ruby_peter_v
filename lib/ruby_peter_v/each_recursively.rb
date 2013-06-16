@@ -6,6 +6,7 @@ class Object
     else
       yield(self)
     end
+    self
   end
 
 private

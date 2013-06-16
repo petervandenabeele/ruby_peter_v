@@ -46,6 +46,13 @@ describe "each_recursively" do
       end
     end
 
+    it "returns self" do
+      a.stub(:test_it)
+      b.each_recursively do |_e|
+        a.test_it(_e)
+      end.should == b
+    end
+
     it "works with lazy in Ruby 2.0" do
       pending("only Ruby >= 2.0") unless RUBY_VERSION.split('.').first.to_i >= 2
       a.should_receive(:test_it).with("test").exactly(2).times
