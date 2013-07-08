@@ -39,5 +39,9 @@
 
 * Object#each_recursively always returns self
 
+0.0.10 (2013-07-08)
+
+* truncate_utf8(max_byte_size)
+
 TODO
 * Object#assert_keys_in

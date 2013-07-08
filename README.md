@@ -120,3 +120,34 @@ d
 2.0.0-p195 :032 > b1 == b2
  => false
 ```
+
+### truncate_utf8(max_byte_size) on String
+
+  Cutting off on bytes inside a utf-8 encoded string will create invalid strings.
+  This implementation limits the number of _bytes_ (not the number of characters).
+  It is based on the response of "Angelo" on
+  http://joernhees.de/blog/2010/12/14/how-to-restrict-the-length-of-a-unicode-string/
+
+```
+/Users/peter_v/p/ruby_peter_v $ irb
+2.0.0-p247 :001 > require 'ruby_peter_v'
+ => true
+2.0.0-p247 :002 > s = 'ABCDüéàè'
+ => "ABCDüéàè"
+2.0.0-p247 :003 > s.size
+ => 8
+2.0.0-p247 :004 > s.bytesize
+ => 12
+2.0.0-p247 :005 > s.truncate_utf8(4)
+ => "ABCD"
+2.0.0-p247 :006 > s.truncate_utf8(5)
+ => "ABCD"
+2.0.0-p247 :007 > s.truncate_utf8(5).bytesize
+ => 4
+2.0.0-p247 :008 > s.truncate_utf8(6)
+ => "ABCDü"
+2.0.0-p247 :009 > s.truncate_utf8(7)
+ => "ABCDü"
+2.0.0-p247 :010 > s.truncate_utf8(7).valid_encoding?
+ => true
+```
