@@ -3,6 +3,16 @@ require 'spec_helper'
 
 describe 'truncate_utf8' do
 
+  context 'edge cases' do
+    it 'works on empty string' do
+      ''.truncate_utf8(140).should == ''
+    end
+
+    it 'works with max_byte_size = 0 ' do
+      'AA'.truncate_utf8(0).should == ''
+    end
+  end
+
   context 'ASCII only' do
 
     let (:a120) { 'A' * 120 }
