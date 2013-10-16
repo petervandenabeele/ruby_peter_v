@@ -53,5 +53,10 @@
 * refactor
 * add validation on attribute in SetOnce
 
+0.0.13 (2013-10-16)
+
+* add docs for block usage with `single`
+* fix bug in exception message
+
 TODO
 * Object#assert_keys_in

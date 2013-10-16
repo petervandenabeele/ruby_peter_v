@@ -6,7 +6,7 @@ module Enumerable
     filtered = block_given? ? self.select(&block) : self
     if filtered.respond_to?(:size)
       _size = filtered.size
-      message = size
+      message = _size
     else
       _size = filtered.first(2).size
       message = "greater than 1 (on Enumerable, the size cannot be calculated)"

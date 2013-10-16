@@ -23,9 +23,12 @@ Add this line to your application's Gemfile:
   ActiveRecord first) which is a silent bug.
 
   single also works smartly on an Enumerable that
-  does not have a `single` method (a lazy collection).
+  does not have a `size` method (a lazy collection).
   It will only evaluate the first(2) elements of
   the collection to determine that it is oversized.
+
+  When given a block, single will filter (select) on
+  that block.
 
 ```
 $ irb
@@ -36,6 +39,11 @@ $ irb
 2.0.0-p195 :003 > [1].single
  => 1
 2.0.0-p195 :004 > [1,2].single
+RubyPeterV::UniquenessError: size of collection was 2.
+...
+2.0.0-p247 :005 > [1,2,2].single{ |e| e == 1 }
+ => 1
+2.0.0-p247 :006 > [1,2,2].single{ |e| e == 2 }
 RubyPeterV::UniquenessError: size of collection was 2.
 ...
 ```

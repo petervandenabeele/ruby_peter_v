@@ -32,8 +32,15 @@ describe "single" do
     end
 
     it "block filters on :a" do
-      a = [:a, :b]
+      a = [:a, :b, :b]
       a.single{|e| e == :a}.should == :a
+    end
+
+    it "block filters on :b and raises" do
+      a = [:a, :b, :b]
+      lambda{ a.single{|e| e == :b} }.should raise_error(
+        RubyPeterV::UniquenessError,
+        "size of collection was 2.")
     end
 
     it "nil block" do
