@@ -48,5 +48,10 @@
 
 * fix truncate_utf8(max_byte_size) to also work on JRuby
 
+0.0.12 (2013-10-16)
+
+* refactor
+* add validation on attribute in SetOnce
+
 TODO
 * Object#assert_keys_in
