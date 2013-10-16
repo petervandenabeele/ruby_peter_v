@@ -12,6 +12,9 @@ class Object
 private
 
   def ivar_symbol(attribute)
+    unless attribute.is_a?(Symbol)
+      raise(ArgumentError, 'first argument must be a symbol for the attribute')
+    end
     :"@#{attribute}"
   end
 

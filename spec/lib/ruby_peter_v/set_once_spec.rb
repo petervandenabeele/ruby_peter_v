@@ -4,6 +4,12 @@ describe "set_once" do
 
   let(:subject) { Object.new }
 
+  it 'raises ArgumentError when the attribute argument is not a symbol' do
+    lambda { subject.set_once(nil, 10) } . should raise_error(
+      ArgumentError,
+      'first argument must be a symbol for the attribute')
+  end
+
   it "can be set when nil" do
     subject.instance_variable_get(:@attr).should be_nil # assert pre-condition
     value = 10
